@@ -1,8 +1,7 @@
-// using
+// uses
 use lmaths::*;
 use smallvec::*;
 use super::*;
-//
 
 #[allow(dead_code)]
 const MAX_ITERATIONS: u32 = 100;
@@ -20,6 +19,7 @@ pub struct GJK {
 
 #[allow(dead_code)]
 impl GJK {
+    /// Initialize new GJK settings, using the default one
     pub fn new() -> Self {
         Self {
             distance_tolerance: GJK_DISTANCE_TOLERANCE,
@@ -28,6 +28,7 @@ impl GJK {
         }
     }
 
+    /// Check if the shapes intersect and return the final Simplex if they do, or 'None' if they don't
     pub fn intersect(&self, left: &dyn crate::Shape, right: &dyn crate::Shape) -> Option<Simplex>
     {
         let left_pos = left.position();

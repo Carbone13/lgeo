@@ -2,6 +2,7 @@ use lmaths::*;
 use crate::Shape;
 
 #[allow(dead_code)]
+/// A circle represented by a position and a radius
 pub struct Circle {
     pub position:Vector2,
     pub radius:f64
@@ -9,7 +10,7 @@ pub struct Circle {
 
 #[allow(dead_code)]
 impl Circle {
-
+    /// Create a new circle at the specified location, with a certain radius
     pub fn new (position:Vector2, radius:f64) -> Self {
         Self { position, radius }
     }

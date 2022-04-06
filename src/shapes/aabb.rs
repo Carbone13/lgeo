@@ -2,17 +2,18 @@ use lmaths::*;
 use crate::Shape;
 use crate::util::*;
 
-#[allow(dead_code)]
+/// Represent a Rectangle shape
 pub struct AABB {
     /// Top Left Corner
     pub position:Vector2,
     pub size:Vector2,
-    pub corners: [Vector2; 4],
+
+    /// The four corners of the rect
+    corners: [Vector2; 4],
 }
 
-#[allow(dead_code)]
 impl AABB {
-
+    /// Create a new rectangle at the specified position, with the specified size
     pub fn new (position:Vector2, size:Vector2) -> Self {
         Self {
             position,
@@ -21,6 +22,7 @@ impl AABB {
         }
     }
 
+    /// Generate the position of the four corners, to cache them
     fn generate_corners(half_dim:Vector2) -> [Vector2; 4] {
         [
             Vector2::new(half_dim.x, half_dim.y),
@@ -31,6 +33,7 @@ impl AABB {
     }
 }
 
+#[allow(dead_code)]
 impl Shape for AABB {
 
     fn position(&self) -> Vector2 {

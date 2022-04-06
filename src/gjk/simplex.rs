@@ -1,15 +1,17 @@
-// using
+// uses
 use lmaths::*;
 use smallvec::*;
 use crate::util::*;
 use super::*;
-//
 
+#[allow(dead_code)]
+/// A simplex is a set of point in space
 pub struct Simplex(SmallVec<[SupportPoint; 5]>);
 
 #[allow(dead_code)]
 impl Simplex {
-
+    /// Create a new simplex with the provided points
+    /// use 'smallvec![]' to initialize an empty one.
     pub fn new (t:SmallVec<[SupportPoint; 5]>) -> Self {
         Self(t)
     }
@@ -58,20 +60,14 @@ impl Simplex {
     }
 
     /// Get the closest point on the simplex to the origin.
-    ///
     /// Make simplex only retain the closest feature to the origin.
     pub fn get_closest_point_to_origin(&mut self) -> Vector2 {
         let mut d = Vector2::ZERO;
 
-        // reduce simplex to the closest feature to the origin
-        // if check_origin return true, the origin is inside the simplex, so return the zero vector
-        // if not, the simplex will be the closest edge to the origin, and d the normal of the edge
-        // in the direction of the origin
         if self.reduce_to_closest_feature(&mut d) {
             return d;
         }
 
-        // compute closest point to origin on the simplex (which is now an edge)
         if self.len() == 1
         {
             self[0].v
