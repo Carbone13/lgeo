@@ -1,4 +1,4 @@
-#L-Geo
+# L-Geo
 
 [![Documentation](https://docs.rs/collision/badge.svg)](https://docs.rs/lgeo/latest/lgeo/)
 [![Version](https://img.shields.io/crates/v/collision.svg)](https://crates.io/crates/lgeo)
