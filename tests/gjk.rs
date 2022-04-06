@@ -14,6 +14,14 @@ mod tests {
         assert!(gjk.intersect(&a, &b).is_none());
         assert!(gjk.intersect(&a, &c).is_some());
         assert!(gjk.intersect(&b, &c).is_some());
+
+        let c = Circle::new(Vector2::new(4.6, -3.2), 1.43);
+        let r = AABB::new(Vector2::new(-1.0, 0.5), Vector2::new(2.0, 1.0));
+        let p = Polygon::new(Vector2::new(0.0, 0.0),
+                             vec![Vector2::new(0.0, 0.5),
+                                  Vector2::new(-1.5, -0.5),
+                                  Vector2::new(-3.0, 0.5),
+                             ]);
     }
 
     #[test]
