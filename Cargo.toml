@@ -12,5 +12,5 @@ keywords = ["2d", "gjk", "geometry", "collision",]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-lmaths = "*"
+lmaths = "1.0.4"
 smallvec = "1.6.1"
