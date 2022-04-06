@@ -10,7 +10,7 @@ Provides classic 2D shapes, such as :
 - Circles
 - Rectangles
 - Convex Polygons
-- 
+
 It implements the [GJK](https://dyn4j.org/2010/04/gjk-gilbert-johnson-keerthi/) algorithm to compute collision and [EPA](https://dyn4j.org/2010/05/epa-expanding-polytope-algorithm/) (yet to be developped) to extrude collision informations.
 
 Examples :
