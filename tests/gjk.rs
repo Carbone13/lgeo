@@ -4,38 +4,62 @@ mod tests {
     use lgeo::*;
 
     #[test]
-    pub fn circles ()
-    {
+    fn circle_circle () {
         let gjk = GJK::new();
-        let circle_a = Circle::new(Vector2::ZERO, 1.0);
-        let circle_b = Circle::new(Vector2::ONE * 1.0, 1.2);
 
-        let r = gjk.intersect(&circle_a, &circle_b);
+        let a = Circle::new(Vector2::new(4.6, -3.2), 1.43);
+        let b = Circle::new(Vector2::new(0.0, 0.0), 1.0);
+        let c = Circle::new(Vector2::new(-1.0, 1.0), 7.4567);
 
-        match r {
-            None => { println!("no collision !")}
-            Some(_) => { println!("collision !")}
-        }
+        assert!(gjk.intersect(&a, &b).is_none());
+        assert!(gjk.intersect(&a, &c).is_some());
+        assert!(gjk.intersect(&b, &c).is_some());
     }
 
     #[test]
-    fn test_support() {
-        println!("Testing Support...");
+    fn circle_polygon () {
+    }
 
-        let left = AABB::new(Vector2::new(15.0, 0.0), Vector2::new(10.0, 10.0));
-        let right = AABB::new(Vector2::new(-15.0, 0.0), Vector2::new(10.0, 10.0));
+    #[test]
+    fn polygon_polygon () {
+        let gjk = GJK::new();
 
-        let direction = Vector2::new(1., 0.);
-        assert_eq!(
-            Vector2::new(40., 0.),
-            SupportPoint::from_minkowski(
-                &left,
-                &right,
-                direction,
-            )
-                .v
-        );
+        let p_a = Polygon::new(Vector2::new(0.0, 0.0),
+                               vec![Vector2::new(0.0, 0.5),
+                                    Vector2::new(-1.5, -0.5),
+                                    Vector2::new(-3.0, 0.5),
+                               ]);
+        let p_b = Polygon::new(Vector2::new(-1.0154, -0.85),
+                               vec![Vector2::new(0.0, 0.0),
+                                    Vector2::new(2.5, -0.5),
+                                    Vector2::new(1.5, 3.5),
+                                    Vector2::new(0.5, 3.0),
+                                    Vector2::new(0.0, 2.5)
+                               ]);
 
-        println!("Support test passed.")
+        let p_c = Polygon::new(Vector2::new(1.6, 2.1),
+                               vec![Vector2::new(-0.5, 0.0),
+                                    Vector2::new(1.0, 0.0),
+                                    Vector2::new(2.0, -1.0),
+                                    Vector2::new(2.5, -2.0),
+                               ]);
+
+        assert!(gjk.intersect(&p_a, &p_b).is_some());
+        assert!(gjk.intersect(&p_a, &p_c).is_none());
+        assert!(gjk.intersect(&p_b, &p_c).is_none());
+    }
+
+    #[test]
+    // only one test with AABBs, because they are just special polygon, so no real point on testing them
+    fn circle_aabb () {
+        let gjk = GJK::new();
+
+        let c_a = Circle::new(Vector2::new(-2.0, -1.0), 1.2);
+        let c_b = Circle::new(Vector2::new(2.0, 1.0), 1.0);
+
+        let r_a = AABB::new(Vector2::new(-1.0, 0.5), Vector2::new(2.0, 1.0));
+
+        assert!(gjk.intersect(&c_a, &r_a).is_some());
+        assert!(gjk.intersect(&c_b, &r_a).is_none());
     }
 }

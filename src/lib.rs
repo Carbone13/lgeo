@@ -11,6 +11,7 @@ pub use gjk::SupportPoint;
 // shapes re-exports
 pub use shapes::AABB;
 pub use shapes::Circle;
+pub use shapes::Polygon;
 
 // shape trait
 pub use shape::Shape;
