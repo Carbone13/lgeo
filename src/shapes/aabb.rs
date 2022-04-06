@@ -1,5 +1,6 @@
 use lmaths::*;
-use super::*;
+use crate::Shape;
+use crate::util::*;
 
 #[allow(dead_code)]
 pub struct AABB {

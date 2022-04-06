@@ -1,5 +1,5 @@
 use lmaths::*;
-use super::*;
+use crate::Shape;
 
 #[allow(dead_code)]
 pub struct Circle {
