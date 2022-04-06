@@ -1,10 +1,16 @@
 [package]
 name = "lgeo"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
+license = "MIT"
+readme = "README.md"
+description = "2D Geometry library, focusing on collision computation"
+homepage = "https://github.com/Carbone13/lgeo"
+repository = "https://github.com/Carbone13/lgeo"
+keywords = ["2d", "gjk", "geometry", "collision",]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-lmaths = "1.0.4"
+lmaths = "*"
 smallvec = "1.6.1"
