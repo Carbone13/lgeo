@@ -2,6 +2,7 @@ mod gjk;
 mod shapes;
 mod util;
 mod shape;
+mod results;
 
 // gjk folder re-exports
 pub use gjk::GJK;
@@ -12,6 +13,9 @@ pub use gjk::SupportPoint;
 pub use shapes::AABB;
 pub use shapes::Circle;
 pub use shapes::Polygon;
+
+// results re-exports
+pub use results::Contact;
 
 // shape trait
 pub use shape::Shape;
