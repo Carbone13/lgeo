@@ -1,8 +1,8 @@
 # L-Geo
 
-[![Documentation](https://docs.rs/collision/badge.svg)](https://docs.rs/lgeo/latest/lgeo/)
-[![Version](https://img.shields.io/crates/v/collision.svg)](https://crates.io/crates/lgeo)
-[![License](https://img.shields.io/crates/l/collision.svg)](https://github.com/carbone13/lgeo/blob/master/LICENSE)
+[![Documentation](https://docs.rs/lgeo/badge.svg)](https://docs.rs/lgeo/latest/lgeo/)
+[![Version](https://img.shields.io/crates/v/lgeo.svg)](https://crates.io/crates/lgeo)
+[![License](https://img.shields.io/crates/l/lgeo.svg)](https://github.com/carbone13/lgeo/blob/master/LICENSE)
 
 2D Geometry library, written in Rust and based on [lmaths](https://github.com/carbone13/lmaths).
 
