@@ -1,3 +1,4 @@
+use std::fmt::Formatter;
 use lmaths::*;
 use crate::Shape;
 use crate::util::*;
@@ -24,5 +25,11 @@ impl Shape for Polygon {
 
     fn support_point(&self, direction: Vector2) -> Vector2 {
         get_max_point(self.vertices.iter(), direction, self.position())
+    }
+}
+impl std::fmt::Display for Polygon {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result
+    {
+        write!(f, "Polygon pos({0}), vertices_count: {1}", self.position, self.vertices.len())
     }
 }
