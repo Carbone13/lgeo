@@ -11,6 +11,7 @@ mod tests {
         let b = Circle::new(Vector2::new(0.0, 0.0), 1.0);
         let c = Circle::new(Vector2::new(-1.0, 1.0), 7.4567);
 
+
         assert!(gjk.intersect(&a, &b).is_none());
         assert!(gjk.intersect(&a, &c).is_some());
         assert!(gjk.intersect(&b, &c).is_some());
