@@ -1,4 +1,4 @@
-use std::fmt::Formatter;
+use std::fmt::{Display, Formatter};
 use lmaths::*;
 use crate::Shape;
 
@@ -25,8 +25,10 @@ impl Shape for Circle {
     fn support_point(&self, direction: Vector2) -> Vector2 {
         (direction.normalized() * self.radius) + self.position()
     }
+}
 
-    fn display_fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+impl Display for Circle {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         write!(f, "Circle pos ({0}), radius: {1}", self.position, self.radius)
     }
 }

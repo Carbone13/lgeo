@@ -1,4 +1,4 @@
-use std::fmt::Formatter;
+use std::fmt::{Display, Formatter};
 use lmaths::*;
 use crate::Shape;
 use crate::util::*;
@@ -44,8 +44,10 @@ impl Shape for AABB {
     fn support_point(&self, direction: Vector2) -> Vector2 {
         get_max_point(self.corners.iter(), direction, self.position())
     }
+}
 
-    fn display_fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+impl Display for AABB {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         write!(f, "AABB pos({0}), size({1})", self.position, self.size)
     }
 }
