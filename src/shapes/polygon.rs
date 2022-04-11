@@ -4,6 +4,7 @@ use crate::Shape;
 use crate::util::*;
 
 #[allow(dead_code)]
+#[derive(Clone, Default, PartialEq, Debug)]
 /// A Convex polygon, made by at least three vertices.
 pub struct Polygon {
     pub position: Vector2,

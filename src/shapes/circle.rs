@@ -3,6 +3,7 @@ use lmaths::*;
 use crate::Shape;
 
 #[allow(dead_code)]
+#[derive(Clone, Copy, Default, PartialEq, Debug)]
 /// A circle represented by a position and a radius
 pub struct Circle {
     pub position:Vector2,

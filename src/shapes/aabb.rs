@@ -4,6 +4,8 @@ use crate::Shape;
 use crate::util::*;
 
 /// Represent a Rectangle shape
+#[allow(dead_code)]
+#[derive(Clone, Copy, Default, PartialEq, Debug)]
 pub struct AABB {
     /// Top Left Corner
     pub position:Vector2,
